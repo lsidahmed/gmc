@@ -36,7 +36,12 @@ func main() {
 
 	// Start the HTTP server on port 8090
 	log.Println("Server listening on :8090")
+	r.HandleFunc("/health", healthHandler).Methods("GET")
 	log.Fatal(http.ListenAndServe(":8090", r))
+}
+func healthHandler(w http.ResponseWriter, r *http.Request) {
+	w.WriteHeader(http.StatusOK)
+	fmt.Fprintln(w, "OK")
 }
 
 // Function to create a student and put into in DB
