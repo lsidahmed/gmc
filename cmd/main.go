@@ -4,6 +4,7 @@ import (
 	"database/sql"
 	"encoding/json"
 	"fmt"
+	"os"
 	"log"
 	"net/http"
 	"strconv"
@@ -20,6 +21,7 @@ import (
 // )
 
 var (
+	dbDriver = "mysql"
 	dbUser = os.Getenv("DB_USER")
 	dbPass = os.Getenv("DB_PASS")
 	dbName = os.Getenv("DB_NAME")
