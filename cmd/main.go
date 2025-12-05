@@ -12,11 +12,17 @@ import (
 	"github.com/gorilla/mux"
 )
 
-const (
-	dbDriver = "mysql"
-	dbUser   = "root"
-	dbPass   = "harsh"
-	dbName   = "student"
+// const (
+// 	dbDriver = "mysql"
+// 	dbUser   = "root"
+// 	dbPass   = "harsh"
+// 	dbName   = "student"
+// )
+
+var (
+	dbUser = os.Getenv("DB_USER")
+	dbPass = os.Getenv("DB_PASS")
+	dbName = os.Getenv("DB_NAME")
 )
 
 type Users struct {
